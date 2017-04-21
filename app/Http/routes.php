@@ -26,6 +26,17 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 
 
+Route::group(['prefix' => 'frontend'], function()
+{
+    // Controllers Within The "App\Http\Controllers\Admin" Namespace
+	Route::get('/',function(){ 
+		// dd("kyatt ka lay pi si is the best chicken in the world");
+		return View::make('frontend.index');
+	});
+   
+   // Route::group("")
+});
+
 
 
 Route::group(['prefix'=>"backend",'middleware'=>['auth',"web"]],

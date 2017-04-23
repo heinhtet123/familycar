@@ -6,6 +6,7 @@
     @include('frontend.partials.header')
 @show
 
+@yield('css')
 
 <body>
 

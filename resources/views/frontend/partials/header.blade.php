@@ -34,9 +34,16 @@
 					<div class="menu-main">
 						<ul class="dc_css3_menu">
 							<li class="active"><a href="{{ url('frontend') }}">Home</a></li>
-							<li><a href="{{ url('frontend/about')">About</a></li>
-							<li><a href="{{ url('frontend/services')">Services</a></li>
-							<li><a href="{{ url('frontend/contact')">Contact</a></li>
+							<li><a href="{{ url('frontend/about') }}">About</a></li>
+							<li><a href="{{ url('frontend/services') }}">Services</a></li>
+							<li><a href="{{ url('frontend/contact') }}">Contact</a></li>
+							 @if (Auth::check())
+							 <li><a href="{{url('frontend/logout')}}">Logout {{Auth::user()->name}}</a></li>
+							 @else
+							 <li><a href="{{url('frontend/login')}}">Login</a></li>
+							 @endif
+							 
+							
 						</ul>
 						<div class="clear"></div>
 					</div>				

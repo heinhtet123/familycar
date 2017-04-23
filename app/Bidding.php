@@ -13,8 +13,8 @@ class Bidding extends Model
 {
 	protected $table = 'bidding';
 
-	protected $fillable = ['car_id','time','status','user_id'];
-
+	protected $fillable = ['car_id','optiontime','bidprice','status','user_id'];
+	
 	public $timestamps = false;
 
 	public function cars()

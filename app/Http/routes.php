@@ -29,12 +29,21 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::group(['prefix' => 'frontend'], function()
 {
     // Controllers Within The "App\Http\Controllers\Admin" Namespace
-	Route::get('/',function(){ 
-		// dd("kyatt ka lay pi si is the best chicken in the world");
-		return View::make('frontend.index');
-	});
-   
-   // Route::group("")
+	Route::get('/',['as'=>'frontend.index','uses'=>'Frontend\BiddingController@index']);
+	Route::get('about',['as'=>'frontend.about','uses'=>'Frontend\BiddingController@about']);
+	Route::get('services',['as'=>'frontend.services','uses'=>'Frontend\BiddingController@services']);
+    Route::get('contact',['as'=>'frontend.contact','uses'=>'Frontend\BiddingController@contact']);
+    Route::get('tobid/{id}',['as'=>'frontend.tobid','uses'=>'Frontend\BiddingController@tobid']);
+    Route::get('login',['as'=>'frontend.login','uses'=>'Frontend\AuthController@login']);
+    Route::post('login',['as'=>'frontend.login','uses'=>'Frontend\AuthController@login_process']);
+    Route::get('logout',['as'=>'frontend.logout','uses'=>'Frontend\AuthController@logout']);
+   // custom login
+   Route::group(['middleware'=>"frontguard"],function()
+   {
+   		 Route::post('placeBid',['as'=>'frontend.placeBid','uses'=>'Frontend\BiddingController@placeBid']);
+   });
+
+
 });
 
 

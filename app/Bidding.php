@@ -17,9 +17,13 @@ class Bidding extends Model
 	
 	public $timestamps = false;
 
-	public function cars()
+	public function car()
 	{
 		return $this->belongsTo(Car::class);
+	}
+	public function user()
+	{
+		return $this->belongsTo(User::class);
 	}
 
 	 public function invoice()

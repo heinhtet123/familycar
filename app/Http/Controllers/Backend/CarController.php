@@ -18,7 +18,6 @@ class CarController extends Controller
     {
          $data=$request->all();
          unset($data["_token"]);
-        
 
          return view("backend.car.registrationpayment")->with("values",$data);
 
@@ -31,7 +30,8 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars=Car::with("model")->paginate(5);
+        $userId=Auth::user()->id;
+        $cars=Car::where("user_id",$userId)->with("model")->paginate(5);
         return view("backend.car.index")->with("cars",$cars);
     }
 

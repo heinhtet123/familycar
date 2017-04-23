@@ -35,6 +35,8 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('backend') }}"><i class='fa fa-link'></i> <span>Dashboard</span></a></li>
             
+
+
             <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
 
             <li class="treeview">
@@ -71,7 +73,7 @@
                 </ul>
             </li>
 
-
+            <li><a href="{{ url('backend/bidwon') }}"><i class='fa fa-link'></i> <span>My Won Cars</span></a></li>
         </ul><!-- /.sidebar-menu -->
 
 

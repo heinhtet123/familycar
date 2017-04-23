@@ -9,6 +9,12 @@
     <!-- Ionicons -->
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
+
+      <!-- Morris charts -->
+
+    <link rel="stylesheet" href="{{asset('/plugins/morris/morris.css')}}" rel="stylesheet" type="text/css" />
+
+
     <link href="{{ asset('/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
@@ -30,5 +36,11 @@
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker-bs3.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datetimepicker/bootstrap-datetimepicker.css') }}">
+
+
+  
+    <link rel="stylesheet" href="{{ asset('css/skins/_all-skins.min.css') }}"> 
+ 
+  
 
 </head>

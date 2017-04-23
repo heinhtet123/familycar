@@ -25,7 +25,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 
-
+// front end
 Route::group(['prefix' => 'frontend'], function()
 {
     // Controllers Within The "App\Http\Controllers\Admin" Namespace
@@ -47,13 +47,15 @@ Route::group(['prefix' => 'frontend'], function()
 });
 
 
-
+// backend
 Route::group(['prefix'=>"backend",'middleware'=>['auth',"web"]],
 function()
 {
 
 	Route::get('/',['as'=>'backend.index','uses'=>'Backend\HomeController@index']);
-	
+	Route::post('mostbrand',['as'=>"backend.mostbrand","uses"=>"Backend\HomeController@mostbrand"]);
+	Route::post('monthlysale',['as'=>"backend.monthlysale","uses"=>"Backend\HomeController@MontlySaleReport"]);
+
 	Route::get("brand",['as'=>'backend.brand.index','uses'=>'Backend\BrandController@index']);
 	Route::get("brand/create",['as'=>'backend.brand.create','uses'=>'Backend\BrandController@create']);
 	Route::post('brand/store',['as'=>"backend.brand.store","uses"=>"Backend\BrandController@store"]);
@@ -69,4 +71,14 @@ function()
 	
 	Route::get("car/carpayment",['as'=>"backend.car.carpayment","uses"=>"Backend\CarController@carpayment"]);
 	Route::resource('car','Backend\CarController');
+
+
+	Route::get("bidwon",["as"=>"backend.bidding.bidwon","uses"=>"Backend\BiddingController@bidWonList"]);
+
+	Route::get("pay/{bidid}",["as"=>"backend.payment.pay","uses"=>"Backend\PaymentController@pay"]);
+	Route::post('pay/store',['as'=>"backend.payment.store","uses"=>"Backend\PaymentController@store"]);
+
+
+
 });
+

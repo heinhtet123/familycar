@@ -19,7 +19,7 @@ class BiddingController extends Controller
 		foreach ($cars as $car) {
 			// MAX(bidding.bidprice) AS max_price,id
 			if($currentDate>=$car->end_bidding_time):
-				
+
 				$bid=Bidding::where("bidprice",\DB::raw("(SELECT MAX(bidprice) FROM bidding where car_id='".$car->id."' GROUP BY bidding.car_id )"))->where("car_id",$car->id)->first();
 				
 				$bidId=$bid->id;
@@ -39,7 +39,6 @@ class BiddingController extends Controller
     function index(Request $request)
     {
     	
-
     	$this->bidwin();
 
     	$cars=Car::where("status",1)->paginate(8);

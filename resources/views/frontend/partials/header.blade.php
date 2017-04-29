@@ -11,7 +11,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="header">	
+	<div class="header">
 		<div class="wrap"> 
 			<div class="header-bot">
 				<div class="logo">
@@ -33,7 +33,7 @@
 					</div>
 					<div class="menu-main">
 						<ul class="dc_css3_menu">
-							<li class="active"><a href="{{ url('frontend') }}">Home</a></li>
+							<li ><a href="{{ url('frontend') }}">Home</a></li>
 							<li><a href="{{ url('frontend/about') }}">About</a></li>
 							<li><a href="{{ url('frontend/services') }}">Services</a></li>
 							<li><a href="{{ url('frontend/contact') }}">Contact</a></li>

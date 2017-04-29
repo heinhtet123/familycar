@@ -44,7 +44,8 @@ body{
 	-ms-transition:all .2s linear;
 }
 .header{
-	background:url(../images/14.png);
+	background-color: #AC0000;
+	font: #FFFFFF;
 }
 .logo{
 	text-align:center;
@@ -175,7 +176,7 @@ body{
 	list-style: none;
 	float: left;
 	display: block;
-	width:25%;
+	width:20%;
 }
 .dc_css3_menu li a {
 	display: block;
@@ -425,7 +426,9 @@ transition: all 0.3s;
 }
 /*--footer--*/
 .footer{
-	background:url(../images/footer_bg.gif);
+	background-color: #000000;
+	color:#FFFFDD;
+	padding-bottom: 10px;
 }
 /*  GRID OF FIVE   ============================================================================= */
 .col_1_of_5{

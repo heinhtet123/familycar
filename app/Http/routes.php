@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,9 +17,21 @@
 //     return view('welcome');
 // });
 
+// use Illuminate\Support\Facades\Redis;
+
+// Route::get('/',function(){
+// 	$visits=Redis::incr('visits');
+// 	return $visits;
+// });
+
+
+
+
 
 Route::get('/','Auth\AuthController@getlogin');
 Route::post('/','Auth\AuthController@postlogin');
+
+
 Route::get('auth/login','Auth\AuthController@getlogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/register', 'Auth\AuthController@getRegister');

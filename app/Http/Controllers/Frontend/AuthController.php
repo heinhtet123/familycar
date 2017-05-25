@@ -28,8 +28,7 @@ class AuthController extends Controller
 
     function login_process(Request $request)
     {
-    	if($request->isMethod('post'))
-    	{
+    	
     		$email=$request->input("email");
     		$password=$request->input("password");
             // guard before attempt
@@ -46,7 +45,7 @@ class AuthController extends Controller
 
 
 
-    	}
+    	
 
     	
     }

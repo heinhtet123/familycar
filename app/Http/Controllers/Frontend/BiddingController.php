@@ -9,8 +9,16 @@ use App\Http\Controllers\Controller;
 use App\Car;
 use Auth;
 use App\Bidding;
+use App\Http\Repositories\BookingRepositories;
 class BiddingController extends Controller
 {
+    protected $bookingrepo;
+
+    public function __construct(BookingRepositories $bookingrepo)
+    {
+        $this->bookingrepo=$bookingrepo;
+    }
+
     //
 	private function bidwin()
 	{
@@ -48,7 +56,7 @@ class BiddingController extends Controller
 
     function tobid($id,Request $request){
     	$car=Car::where("id",$id)->first();
-    	$end_time=$this->daysleft($car->end_bidding_time);
+    	$end_time=$this->bookingrepo->daysleft($car->end_bidding_time);
     	$max_bid=Bidding::where("car_id",$id)->max("bidprice");
 
 
@@ -59,14 +67,14 @@ class BiddingController extends Controller
     	return view("frontend.bidding")->with("car",$car)->with("timeDiff",$end_time)->with("maxprice",$max_bid);
     }
 
-    private function daysleft($endtime)
-    {
-    	$datetime1 = new \DateTime($endtime);
-    	$datetime2 = new \DateTime(date("Y-m-d H:i:s"));
-    	$interval = $datetime1->diff($datetime2);
-		return $interval->format('%a days %h hours %i minutes %s seconds');
+  //   private function daysleft($endtime)
+  //   {
+  //   	$datetime1 = new \DateTime($endtime);
+  //   	$datetime2 = new \DateTime(date("Y-m-d H:i:s"));
+  //   	$interval = $datetime1->diff($datetime2);
+		// return $interval->format('%a days %h hours %i minutes %s seconds');
 
-    }
+  //   }
 
     function placeBid(Request $request)
     {

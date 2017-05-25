@@ -44,6 +44,7 @@ class HomeController extends Controller
          if($request->ajax() && $request->isMethod("post"))
          {
               $car_data=[];
+              
               $most_bought_cars=Payment::select("car_id",\DB::raw("COUNT(payment.car_id) as carcount"))->where("status",2)->groupBy("car_id")->orderBy("carcount","DESC")->paginate(10);
 
               foreach ($most_bought_cars as $key => $car) {
@@ -64,6 +65,7 @@ class HomeController extends Controller
          {
             $data=[0,0,0,0,0,0,0];
             // SELECT month(created_at) AS created,COUNT(*),`status` FROM `payment`  where status=2 GROUP BY created;
+
             $montlySaleReports = \DB::select("SELECT month(created_at) AS created,COUNT(*) AS total,`status` FROM `payment`  where status=? GROUP BY created;", [2]);
 
             // $montlySaleReports=Payment::select(\DB::raw("month(created_at) as created,COUNT(*) as total,'status' "))->where('status',2)->groupBy("created")->paginate(7);
